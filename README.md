@@ -1,4 +1,4 @@
-# Metronome - Written in HTML, CSS & JavaScript, using the Web Audio API
+# Metronome - Written in HTML, CSS & JavaScript using the Web Audio API
 #### URL:  https://xop14.github.io/metronome/
 #### Description:
 
