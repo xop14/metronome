@@ -1,0 +1,436 @@
+/* reset main canvas */
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Roboto Slab;
+    user-select: none; /* prevents user from selecting text on page */
+}
+
+
+
+/* general element styles */
+
+html {
+    background-color:#1a1a1a;
+    scroll-behavior: smooth;
+}
+
+body {
+    padding: 30px;
+    color:#f0f0f0;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #ffffffcc;
+}
+
+h3 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: #ffffffcc;
+}
+
+h4 {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #ffffff99;
+}
+
+li {
+    margin-bottom: 10px;
+    margin-left: 14px;
+    font-size: 14px;
+    color: #ffffff44;
+    
+}
+
+a {
+    color:#d6901faa;
+}
+
+a:hover {
+    color:#d6901fdd;
+}
+
+button {
+    padding-block:15px;
+    color: #333333;
+    width: 100%;
+    border: 0px;
+    border-radius: 25px;
+    font-size: 2rem;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: #ffffffaa;
+    touch-action: manipulation;  /* disables zoom on mobile devices when double tapping */
+}
+
+button:hover {
+    background-color: #ffffffbb;
+}
+
+select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    margin-top: 20px;
+    padding: 10px;
+    color: #ffffffaa;
+    font-size: 18px;
+    border-radius: 10px;
+    background-color: #ffffff11;
+    border:#cccccc66 2px solid;
+    width:100%;
+    height:50px
+    
+}
+
+
+
+/* background colors */
+.green {
+    background-color:#1a9652cc;
+}
+.red {
+    background-color:#d23030cc;
+}
+.green-dim {
+    background-color:#1a965222;
+}
+.red-dim {
+    background-color:#d2303022;
+}
+.base {
+    background-color:#1a1a1a;
+    transition: 0.5s;
+}
+
+
+
+/* main section and flexible side bars */
+#main-container {
+    display: flex;
+}
+#main-section {
+    flex-wrap: nowrap;
+    flex-grow: 2;
+    min-width: 300px;
+    max-width: 500px;
+}
+.main-sides {
+    flex-wrap: nowrap;
+    flex-grow: 1;
+}
+
+
+/* header bar*/
+#header-container {
+    display: flex;
+}
+
+#site-title-box {
+    flex-grow: 1;
+}
+
+#title-text {
+    margin-bottom: 0px;
+}
+
+#version {
+    font-size: 12px;
+    color: #ffffff33;
+    padding: 0px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+#settings-icon {
+    padding:10px;
+    opacity: 0.4;
+    cursor: pointer;
+}
+
+#hr-top {
+    margin-top: 0px;
+    margin-bottom: 20px;
+    border: 1px solid #ffffff22;
+}
+
+
+/* Tempo and time signature section */
+
+#time-sig-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
+}
+
+.time-sig-box {
+    flex-grow: 1;
+}
+
+#tempo-header {
+    text-align: center;
+    margin-top: 30px;
+    font-size:1.5rem;
+    color: #ffffff88;
+}
+
+#tempo-text {
+    text-align: center;
+    font-size: 7.5rem;
+    font-weight: 800;
+    color: #ffffffcc;
+    margin-top: -5px;
+}
+
+#tempo-name {
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 15px;
+    font-size:1.5rem;
+    color: #ffffff33;
+}
+
+.time-sig-button {
+    background: #ffffff11;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 40px;
+    line-height: 35px;
+    cursor: pointer;
+    color: #ffffff66;
+}
+
+.time-sig-button:hover {
+    background: #ffffff22;
+}
+
+#time-sig-value {
+    font-size: 1.5rem;
+    line-height: 47px;
+    padding: 15px;
+    color: #ffffff66;
+}
+
+.tempo-slider-header {
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-size:1rem;
+    color: #ffffff33;
+}
+
+#tempo-input {
+    margin-top: 25px;
+    margin-bottom: 40px;
+}
+
+.slider {
+    -webkit-appearance: none; /* disables default look in safari */
+    width: 100%;
+    height: 10px;
+    border-radius: 5px;
+    background: #d3d3d399;
+  }
+  
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* disables default look in safari */
+    appearance: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: #ffffff;
+    cursor: pointer;
+    box-shadow: 0px 0px 5px 1px #21212111;
+  }
+  
+.slider::-moz-range-thumb {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #ffffff;
+    cursor: pointer;
+}
+
+#button-container {
+    display: flex;
+    position: relative;
+}
+
+#start-button-box {
+    padding-right: 15px;
+    flex-grow: 1;
+}
+
+#tap-tempo-button {
+    font-size: 1rem;
+    padding:13px;
+    padding-inline: 20px;
+    background-color: #ffffff33;
+    border:#cccccc66 2px solid;
+    color: #ffffff99;
+}
+
+.tap-color-on {
+    background-color: #d6901feb !important;
+}
+
+.tap-color-off {
+    background-color: #ffffff33;
+    transition: 0.5s;
+}
+
+/* Used for diagnostics */
+#print1 {
+    text-align: center;
+    color: #ffffff33;
+}
+
+#hr-bottom {
+    margin-top: 40px;
+    margin-bottom: 34px;
+    border: 1px solid #ffffff22;
+}
+
+
+/* Settings section */
+
+.options-container {
+    display: flex;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.tick-box {
+    height: 24px;
+    width: 24px;
+    margin-left: 5px;
+    border: #ffffffaa 3px solid;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.tick-box-on {
+    margin: 3px;
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: #ffffffaa;
+}
+
+.tick-box-off {
+    margin: 3px;
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: #ffffff00;
+}
+
+.option-text {
+    flex-grow: 1;
+    flex-wrap: wrap;
+    margin-left: 10px;
+    vertical-align: middle;
+    padding-top: 5px;
+    font-size:1rem;
+    color: #ffffff99;
+}
+
+.arrow-circle { /* arrows for select box*/
+    height: 0px;
+    width: 0px;
+    border: 14px solid #ffffff22;
+    border-radius: 50%;
+    position: absolute;
+    top: 31px;
+    right: 12px;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.arrow-down { /* arrows for select box*/
+    height: 0px;
+    width: 0px;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 9px solid #ffffff44;
+    position: absolute;
+    top: 42px;
+    right: 19px;
+    pointer-events: none;
+}
+
+.volume-control-header {
+    margin-left: 10px;
+    vertical-align: middle;
+    margin-top: 33px;
+    margin-bottom: 12px;
+    font-size:1rem;
+    color: #ffffff99;
+}
+
+.volume-control {
+    width: 100%;
+    height: 8px;
+    margin-bottom: 25px;
+}
+
+.volume-control::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #ffffff;
+    cursor: pointer;
+    box-shadow: 0px 0px 5px 1px #21212111;
+  }
+  
+.volume-control::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #ffffff;
+    cursor: pointer;
+}
+
+#bluetooth-delay-header {
+    margin-top: 10px;
+}
+
+.explanation {
+    padding-left: 10px;
+    font-size: 0.8rem;
+    line-height: 1.4rem;
+    color: #ffffff33;
+
+}
+
+#spacer-bottom {
+    margin-bottom: 40px;
+}
+
+#hr-credits {
+    margin-top: 40px;
+    margin-bottom: 34px;
+    border: 1px solid #ffffff22;
+}
+
+#credits {
+    padding-left: 10px;
+    color: #ffffff66;
+    font-size: 1rem;
+    line-height: 1.7rem;
+}

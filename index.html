@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metronome.</title>
+    <link href="styles.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+
+<body id="body-bg">
+    <!--NoSleep.js - MIT. Copyright (c) Rich Tibbett. https://github.com/richtr/NoSleep.js-->
+    <!--This keeps mobile devices awake while metronome is running-->
+    <script src="NoSleep.js"></script>
+    <!--NoSleep end-->
+
+    <div id="main-container">
+        <div class="main-sides"></div>
+        <div id="main-section">
+            <div id="header-container">
+                <div id="site-title-box">
+                    <h1 id="title-text">Metronome.</h1>
+                    <p id="version">Version: 1.03</p>
+                </div>
+                <div id="settings-icon">
+                    <img src="./images/settings.svg" width="40px">
+                </div>
+            </div>
+
+            <hr id="hr-top">
+
+            <p id="tempo-header">bpm</p>
+            <h2 id="tempo-text">100</h2>
+            <p id="tempo-name">Allegretto</p>
+
+            <div id="time-sig-container">
+                <div class="time-sig-box"></div>
+                <div class="time-sig-button" id="time-sig-down">-</div>
+                <div id="time-sig-value">4 steps</div>
+                <div class="time-sig-button" id="time-sig-up">+</div>
+                <div class="time-sig-box"></div>
+            </div>
+
+            <p class="tempo-slider-header">Adjust tempo with slider</p>
+            <input type="range" class="slider" min="20" max="240" id="tempo-input" value="100">
+
+            <div id="button-container">
+                <div id="start-button-box">
+                    <button id="start-stop">Start</button>
+                </div>
+                <div id="tap-tempo-button-container">
+                    <button id="tap-tempo-button">Tap<br>tempo</button>
+                </div>
+            </div>
+
+            <p id="print1"></p>
+
+            <hr id="hr-bottom">
+            
+            <h3>Settings:</h3>
+            <div class="options-container">
+                <div class="tick-box" id="option-flash-button"><div class="tick-box-off" id="option-flash"></div></div>
+                <div class="option-text">Reduce flash brightness</div>
+            </div>
+
+            <div class="options-container">
+                <select name="sub-divs" id="sub-divisions">
+                    <option value="off">Subdivisions off</option>
+                    <option value="2">Semis</option>
+                    <option value="3">Triplets</option>
+                    <option value="4">Quarters</option>
+                    <option value="5">Fifths</option>
+                    <option value="swing">Swing</option>
+                </select>
+                <div class="arrow-down"></div>
+                <div class="arrow-circle"></div>
+            </div>
+            <p class="volume-control-header" id="sub-volume-control-header">Subdivision volume: 75%</p>
+            <input type="range" class="slider volume-control" min="0" max="100" id="sub-volume-control" value="75">
+
+            <div class="options-container">
+                <select name="waves" id="wave-type">
+                    <option value="triangle">Triangle wave</option>
+                    <option value="square">Square wave</option>
+                    <option value="sawtooth">Sawtooth wave</option>
+                    <option value="sine">Sine wave</option>
+                </select>
+                <div class="arrow-down"></div>
+                <div class="arrow-circle"></div>
+            </div>
+
+            <p class="volume-control-header" id="volume-control-header">Master volume: 100%</p>
+            <input type="range" class="slider volume-control" min="0" max="100" id="volume-control" value="100">
+
+            <p class="volume-control-header" id="bluetooth-delay-header">Bluetooth audio lag compensation: 0ms</p>
+            <input type="range" class="slider volume-control" min="0" max="300" id="bluetooth-delay" value="0">
+            <p class="explanation">Use this setting to syncronize the flashes with audio when using bluetooth headphones with high audio lag</p>
+
+            
+            <hr id="hr-credits">
+            <p id="credits">This web app was coded in Japan by David Green for the <a href="https://cs50.harvard.edu/x/2022/" target="_blank">Harvard CS50x 2022</a> final project. It uses HTML5, CSS3 and JavaScript with a focus on exploring the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API" target="_blank"> Web Audio API</a>. This was a fun project which hopefully some musicians out there will find helpful!</p>
+            <div id="spacer-bottom"></div>
+
+        </div>
+        <div class="main-sides"></div>
+    </div>
+    <script src="code.js"></script>
+
+
+
+
+
+
+    <!--NoSleep.js - MIT. Copyright (c) Rich Tibbett. https://github.com/richtr/NoSleep.js-->
+    <script>
+        let noSleep = new NoSleep();
+  
+        let wakeLockEnabled = false;
+        let toggleEl = document.getElementById("start-stop");
+        toggleEl.addEventListener('click', function() {
+          if (!wakeLockEnabled) {
+            noSleep.enable(); // keep the screen on!
+            wakeLockEnabled = true;
+          } else {
+            noSleep.disable(); // let the screen turn off.
+            wakeLockEnabled = false;
+          }
+          window.console.log = wakeLockEnabled;
+        }, false);
+      </script>
+      <!--NoSleep end-->
+</body>
+</html>
